@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DA8A6751EA91CAA00DCFEA6 /* PRSCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6741EA91CAA00DCFEA6 /* PRSCounter.swift */; };
 		2DC0B3A51EA9085A00ECFB31 /* PureSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC0B39B1EA9085A00ECFB31 /* PureSwift.framework */; };
 		2DC0B3AA1EA9085A00ECFB31 /* PureSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0B3A91EA9085A00ECFB31 /* PureSwiftTests.swift */; };
 		2DC0B3AC1EA9085A00ECFB31 /* PureSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC0B39E1EA9085A00ECFB31 /* PureSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DA8A6741EA91CAA00DCFEA6 /* PRSCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSCounter.swift; sourceTree = "<group>"; };
 		2DC0B39B1EA9085A00ECFB31 /* PureSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PureSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC0B39E1EA9085A00ECFB31 /* PureSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PureSwift.h; sourceTree = "<group>"; };
 		2DC0B39F1EA9085A00ECFB31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				2DC0B3A91EA9085A00ECFB31 /* PureSwiftTests.swift */,
 				2DC0B3AB1EA9085A00ECFB31 /* Info.plist */,
+				2DA8A6741EA91CAA00DCFEA6 /* PRSCounter.swift */,
 			);
 			path = PureSwiftTests;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DC0B3AA1EA9085A00ECFB31 /* PureSwiftTests.swift in Sources */,
+				2DA8A6751EA91CAA00DCFEA6 /* PRSCounter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
