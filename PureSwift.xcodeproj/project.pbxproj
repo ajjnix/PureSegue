@@ -12,6 +12,8 @@
 		2DA8A6791EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6781EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift */; };
 		2DA8A67F1EA9279200DCFEA6 /* PRSSegueRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A67E1EA9279200DCFEA6 /* PRSSegueRepository.swift */; };
 		2DA8A6811EA927B200DCFEA6 /* PRSSegueRepository_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6801EA927B200DCFEA6 /* PRSSegueRepository_Tests.swift */; };
+		2DA8A6871EA9329100DCFEA6 /* PRSBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6861EA9329100DCFEA6 /* PRSBox.swift */; };
+		2DA8A6891EA932A100DCFEA6 /* PRSBox_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6881EA932A100DCFEA6 /* PRSBox_Tests.swift */; };
 		2DC0B3A51EA9085A00ECFB31 /* PureSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC0B39B1EA9085A00ECFB31 /* PureSwift.framework */; };
 		2DC0B3AC1EA9085A00ECFB31 /* PureSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DC0B39E1EA9085A00ECFB31 /* PureSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DE5DC9B1EA913B90086F0AC /* DispatchQueue+PRS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE5DC9A1EA913B90086F0AC /* DispatchQueue+PRS_Tests.swift */; };
@@ -34,6 +36,8 @@
 		2DA8A6781EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSTokenRepository_Tests.swift; sourceTree = "<group>"; };
 		2DA8A67E1EA9279200DCFEA6 /* PRSSegueRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSSegueRepository.swift; sourceTree = "<group>"; };
 		2DA8A6801EA927B200DCFEA6 /* PRSSegueRepository_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSSegueRepository_Tests.swift; sourceTree = "<group>"; };
+		2DA8A6861EA9329100DCFEA6 /* PRSBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSBox.swift; sourceTree = "<group>"; };
+		2DA8A6881EA932A100DCFEA6 /* PRSBox_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSBox_Tests.swift; sourceTree = "<group>"; };
 		2DC0B39B1EA9085A00ECFB31 /* PureSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PureSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC0B39E1EA9085A00ECFB31 /* PureSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PureSwift.h; sourceTree = "<group>"; };
 		2DC0B39F1EA9085A00ECFB31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				2DE5DC9C1EA914490086F0AC /* DispatchQueue+PRS.swift */,
 				2DA8A6761EA91DF600DCFEA6 /* PRSTokenRepository.swift */,
 				2DA8A67E1EA9279200DCFEA6 /* PRSSegueRepository.swift */,
+				2DA8A6861EA9329100DCFEA6 /* PRSBox.swift */,
 			);
 			path = PureSwift;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 				2DA8A6781EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift */,
 				2DA8A6741EA91CAA00DCFEA6 /* PRSCounter.swift */,
 				2DA8A6801EA927B200DCFEA6 /* PRSSegueRepository_Tests.swift */,
+				2DA8A6881EA932A100DCFEA6 /* PRSBox_Tests.swift */,
 			);
 			path = PureSwiftTests;
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DE5DC9D1EA914490086F0AC /* DispatchQueue+PRS.swift in Sources */,
+				2DA8A6871EA9329100DCFEA6 /* PRSBox.swift in Sources */,
 				2DA8A67F1EA9279200DCFEA6 /* PRSSegueRepository.swift in Sources */,
 				2DA8A6771EA91DF600DCFEA6 /* PRSTokenRepository.swift in Sources */,
 			);
@@ -227,6 +234,7 @@
 			files = (
 				2DA8A6751EA91CAA00DCFEA6 /* PRSCounter.swift in Sources */,
 				2DA8A6811EA927B200DCFEA6 /* PRSSegueRepository_Tests.swift in Sources */,
+				2DA8A6891EA932A100DCFEA6 /* PRSBox_Tests.swift in Sources */,
 				2DE5DC9B1EA913B90086F0AC /* DispatchQueue+PRS_Tests.swift in Sources */,
 				2DA8A6791EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift in Sources */,
 			);
