@@ -1,11 +1,8 @@
-protocol PRSTokenRepository {
-    func contains(_ token: String) -> Bool
-    func append(_ token: String)
-}
+private let tokenRepository = PRSInMemotyTokenRepository()
 
 extension DispatchQueue {
     @discardableResult
-    static func prs_once(token: String, tokenRepository: PRSTokenRepository, function: () -> ()) -> Bool {
+    static func prs_once(token: String, tokenRepository: PRSTokenRepository = tokenRepository, function: () -> ()) -> Bool {
         guard tokenRepository.contains(token) == false else {
             return false
         }
