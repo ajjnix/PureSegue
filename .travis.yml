@@ -3,7 +3,16 @@ osx_image: xcode8.3
 xcode_project: PureSwift.xcodeproj
 xcode_sdk: iphonesimulator10.2
 
+before_install: 
+- rvm install 2.1.0
+- rvm use $RVM_RUBY_VERSION
+
+install: 
+- bundle install
+
 script: 
 - xcodebuild -project PureSwift.xcodeproj -scheme PureSwift build -sdk iphonesimulator
 - xcodebuild test -project PureSwift.xcodeproj -scheme PureSwift build -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3'
 
+after_success: 
+- slather
