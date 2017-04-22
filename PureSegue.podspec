@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = 'PureSegue'
-  spec.version          = '0.0.1'
+  spec.version          = '0.0.2'
   spec.summary          = 'Perform segue with configuration block'
   spec.homepage         = 'https://github.com/ajjnix/PureSegue'
   spec.license          = 'MIT'
