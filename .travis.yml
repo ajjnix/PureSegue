@@ -16,3 +16,7 @@ script:
 
 after_success: 
 - slather
+
+notifications:
+  email:
+    on_success: never
