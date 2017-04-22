@@ -1,6 +1,6 @@
 language: objective-c
 osx_image: xcode8.3
-xcode_project: PureSwift.xcodeproj
+xcode_project: PureSegue.xcodeproj
 xcode_sdk: iphonesimulator10.2
 
 before_install: 
@@ -11,8 +11,8 @@ install:
 - bundle install
 
 script: 
-- xcodebuild -project PureSwift.xcodeproj -scheme PureSwift build -sdk iphonesimulator
-- xcodebuild test -project PureSwift.xcodeproj -scheme PureSwift build -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3'
+- xcodebuild -project PureSegue.xcodeproj -scheme PureSegue build -sdk iphonesimulator
+- xcodebuild test -project PureSegue.xcodeproj -scheme PureSegue build -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3'
 
 after_success: 
 - slather

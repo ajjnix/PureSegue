@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2DC0B39A1EA9085A00ECFB31"
-               BuildableName = "PureSwift.framework"
-               BlueprintName = "PureSwift"
-               ReferencedContainer = "container:PureSwift.xcodeproj">
+               BuildableName = "PureSegue.framework"
+               BlueprintName = "PureSegue"
+               ReferencedContainer = "container:PureSegue.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2DC0B3A31EA9085A00ECFB31"
-               BuildableName = "PureSwiftTests.xctest"
-               BlueprintName = "PureSwiftTests"
-               ReferencedContainer = "container:PureSwift.xcodeproj">
+               BuildableName = "PureSegueTests.xctest"
+               BlueprintName = "PureSegueTests"
+               ReferencedContainer = "container:PureSegue.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DC0B39A1EA9085A00ECFB31"
-            BuildableName = "PureSwift.framework"
-            BlueprintName = "PureSwift"
-            ReferencedContainer = "container:PureSwift.xcodeproj">
+            BuildableName = "PureSegue.framework"
+            BlueprintName = "PureSegue"
+            ReferencedContainer = "container:PureSegue.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DC0B39A1EA9085A00ECFB31"
-            BuildableName = "PureSwift.framework"
-            BlueprintName = "PureSwift"
-            ReferencedContainer = "container:PureSwift.xcodeproj">
+            BuildableName = "PureSegue.framework"
+            BlueprintName = "PureSegue"
+            ReferencedContainer = "container:PureSegue.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2DC0B39A1EA9085A00ECFB31"
-            BuildableName = "PureSwift.framework"
-            BlueprintName = "PureSwift"
-            ReferencedContainer = "container:PureSwift.xcodeproj">
+            BuildableName = "PureSegue.framework"
+            BlueprintName = "PureSegue"
+            ReferencedContainer = "container:PureSegue.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

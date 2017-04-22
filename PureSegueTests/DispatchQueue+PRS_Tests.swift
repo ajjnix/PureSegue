@@ -1,5 +1,5 @@
 import XCTest
-@testable import PureSwift
+@testable import PureSegue
 
 final class DispatchQueue_RPS_Tests: XCTestCase {
     func test_result_exec_first() {

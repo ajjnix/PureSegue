@@ -1,5 +1,5 @@
 import XCTest
-@testable import PureSwift
+@testable import PureSegue
 
 final class PRSBox_Tests: XCTestCase {
     func test_save_value() {

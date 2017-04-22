@@ -1,5 +1,5 @@
 import XCTest
-@testable import PureSwift
+@testable import PureSegue
 
 final class PRSTokenRepository_Tests: XCTestCase {
     func test_contains_false() {

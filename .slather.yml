@@ -1,5 +1,5 @@
 coverage_service: coveralls
-xcodeproj: PureSwift.xcodeproj
-scheme: PureSwift
+xcodeproj: PureSegue.xcodeproj
+scheme: PureSegue
 ignore:
-  - PureSwiftTests/*
+  - PureSegueTests/*

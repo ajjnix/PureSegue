@@ -1,6 +1,6 @@
 import XCTest
 import UIKit
-@testable import PureSwift
+@testable import PureSegue
 
 final class PRSPRSSegueRepository_Tests: XCTestCase {
     override func setUp() {

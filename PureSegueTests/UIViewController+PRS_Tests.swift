@@ -1,6 +1,6 @@
 import XCTest
 import UIKit
-@testable import PureSwift
+@testable import PureSegue
 
 private enum TestData {
     static let identifier = "identifier"
