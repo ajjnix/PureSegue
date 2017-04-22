@@ -9,8 +9,31 @@ private enum TestData {
 final class UIViewController_PRS_Tests: XCTestCase {
     override func setUp() {
         super.setUp()
+        continueAfterFailure = false
         counter = PRSCounter()
         mockViewController = PRS_Mock_ViewController()
+    }
+    
+    func test_short_performSegue_correct_argument() {
+        mockViewController.before_performSegue = { identifier, sender in
+            XCTAssertEqual(TestData.identifier, identifier)
+            XCTAssertNil(sender)
+            self.counter.increment()
+        }
+        mockViewController.prs_performSegue(withIdentifier: TestData.identifier, configurate: { _ in })
+        XCTAssertEqual(counter.count, 1)
+    }
+    
+    func test_full_performSegue_correct_argument() {
+        mockViewController.before_performSegue = { identifier, sender in
+            XCTAssertEqual(TestData.identifier, identifier)
+            XCTAssertNotNil(sender)
+            XCTAssertTrue(sender is UIViewController_PRS_Tests)
+            XCTAssertTrue((sender as! UIViewController_PRS_Tests) === self)
+            self.counter.increment()
+        }
+        mockViewController.prs_performSegue(withIdentifier: TestData.identifier, sender: self, configurate: { _ in })
+        XCTAssertEqual(counter.count, 1)
     }
     
     func test_performSegue_called_configurate() {
@@ -74,7 +97,9 @@ final class UIViewController_PRS_Tests: XCTestCase {
 final class PRS_Mock_ViewController: UIViewController {
     var stub_segue = PRS_Stub_StoryboardSegue()
 
+    var before_performSegue: (String, Any?) -> () = { _ in }
     override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        before_performSegue(identifier, sender)
         prepare(for: stub_segue, sender: sender)
     }
 }

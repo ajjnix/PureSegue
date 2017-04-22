@@ -16,8 +16,13 @@ extension UIViewController {
             })
     }
     
-    public func prs_performSegue(withIdentifier identifier: String,
-                                 sender: AnyObject? = nil,
+    @objc public func prs_performSegue(withIdentifier identifier: String,
+                                 configurate: @escaping UIViewController_PRSConfigurate) {
+        prs_performSegue(withIdentifier: identifier, sender: nil, configurate: configurate)
+    }
+    
+    @objc public func prs_performSegue(withIdentifier identifier: String,
+                                 sender: AnyObject?,
                                  configurate: @escaping UIViewController_PRSConfigurate) {
         prs_swizzlingPrepareForSegue()
         prs_segueRepository.saveConfigurate(configurate, for: identifier)
