@@ -10,97 +10,97 @@ final class UIViewController_PRS_Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        counter = PRSCounter()
-        mockViewController = PRS_Mock_ViewController()
     }
     
     func test_short_performSegue_correct_argument() {
-        mockViewController.before_performSegue = { identifier, sender in
-            XCTAssertEqual(TestData.identifier, identifier)
-            XCTAssertNil(sender)
-            self.counter.increment()
-        }
+        let mockViewController = PRS_Mock_ViewController()
         mockViewController.prs_performSegue(withIdentifier: TestData.identifier, configurate: { _ in })
-        XCTAssertEqual(counter.count, 1)
+        XCTAssertEqual(mockViewController.spy_performSegue?.identifier, TestData.identifier)
+        XCTAssertNil(mockViewController.spy_performSegue?.sender)
     }
     
     func test_full_performSegue_correct_argument() {
-        mockViewController.before_performSegue = { identifier, sender in
-            XCTAssertEqual(TestData.identifier, identifier)
-            XCTAssertNotNil(sender)
-            XCTAssertTrue(sender is UIViewController_PRS_Tests)
-            XCTAssertTrue((sender as! UIViewController_PRS_Tests) === self)
-            self.counter.increment()
-        }
+        let mockViewController = PRS_Mock_ViewController()
         mockViewController.prs_performSegue(withIdentifier: TestData.identifier, sender: self, configurate: { _ in })
-        XCTAssertEqual(counter.count, 1)
-    }
-    
-    func test_performSegue_called_configurate() {
-        mockViewController.prs_performSegue(withIdentifier: TestData.identifier, configurate: { segue in
-            self.counter.increment()
-        })
-        XCTAssertEqual(counter.count, 1)
+
+        XCTAssertEqual(mockViewController.spy_performSegue?.identifier, TestData.identifier)
+        XCTAssertNotNil(mockViewController.spy_performSegue?.sender)
+        XCTAssertTrue(mockViewController.spy_performSegue!.sender is UIViewController_PRS_Tests)
+        XCTAssertTrue((mockViewController.spy_performSegue!.sender as! UIViewController_PRS_Tests) === self)
     }
     
     func test_performSegue_not_called_configurate_without_segue_identifier() {
+        let mockViewController = PRS_Mock_ViewController()
         mockViewController.stub_segue.stub_identifier = nil
         
-        mockViewController.prs_performSegue(withIdentifier: TestData.identifier, configurate: { segue in
-            self.counter.increment()
-        })
-        
-        XCTAssertEqual(counter.count, 0)
+        mockViewController.prs_performSegue(withIdentifier: TestData.identifier, configurate: { _ in })
+        XCTAssertNil(mockViewController.spy_configurate_segue)
     }
     
     func test_performSegue_called_configurate_correct() {
-        var verify = false
-        mockViewController.prs_performSegue(withIdentifier: TestData.identifier, configurate: { segue in
-            verify = (segue === self.mockViewController.stub_segue)
-        })
-        XCTAssertTrue(verify)
+        let segue = PRS_Stub_StoryboardSegue()
+        let mockViewController = PRS_Mock_ViewController(stub_segue: segue)
+        mockViewController.prs_performSegue(withIdentifier: TestData.identifier, configurate: { _ in })
+        XCTAssertNotNil(mockViewController.spy_configurate_segue)
+        XCTAssertTrue(mockViewController.spy_configurate_segue! === segue)
     }
     
     func test_performSegue_to_class() {
-        let fake_viewController = PRS_Fake_ViewController()
-        let clazz = type(of: fake_viewController)
-        mockViewController.stub_segue.stub_identifier = String(describing: clazz)
-        mockViewController.stub_segue.stub_destination = fake_viewController
+        let dummy_viewController = PRS_Dummy_ViewController()
+        let clazz = type(of: dummy_viewController)
+        let segue = PRS_Stub_StoryboardSegue(stub_identifier: String(describing: clazz),
+                                             stub_destination: dummy_viewController)
         
+        let mockViewController = PRS_Mock_ViewController(stub_segue: segue)
+        var spy_viewController: UIViewController? = nil
         mockViewController.prs_performSegue(to: clazz, sender: nil, configurate: { viewController in
-            self.counter.increment()
-            XCTAssertNotNil(viewController)
-            XCTAssertTrue(viewController === fake_viewController)
+            spy_viewController = viewController
         })
         
-        XCTAssertEqual(counter.count, 1)
+        XCTAssertNotNil(spy_viewController)
+        XCTAssertTrue(spy_viewController! === dummy_viewController)
     }
     
     func test_performSegue_to_class_fail() {
-        let fake_viewController = PRS_Fake_ViewController()
-        let clazz = type(of: fake_viewController)
-        mockViewController.stub_segue.stub_identifier = String(describing: clazz)
-        mockViewController.stub_segue.stub_destination = UIViewController()
+        let dummy_viewController = PRS_Dummy_ViewController()
+        let clazz = type(of: dummy_viewController)
+        let segue = PRS_Stub_StoryboardSegue(stub_identifier: String(describing: clazz))
         
+        let mockViewController = PRS_Mock_ViewController(stub_segue: segue)
+        var spy_viewController: UIViewController? = nil
         mockViewController.prs_performSegue(to: clazz, sender: nil, configurate: { viewController in
-            self.counter.increment()
-            XCTAssertNil(viewController)
+            spy_viewController = viewController
         })
         
-        XCTAssertEqual(counter.count, 1)
+        XCTAssertNil(spy_viewController)
     }
-    
-    private var counter: PRSCounter!
-    private var mockViewController: PRS_Mock_ViewController!
 }
 
 final class PRS_Mock_ViewController: UIViewController {
-    var stub_segue = PRS_Stub_StoryboardSegue()
+    let stub_segue: PRS_Stub_StoryboardSegue
+    
+    init(stub_segue: PRS_Stub_StoryboardSegue = .init()) {
+        self.stub_segue = stub_segue
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        assertionFailure("init(coder:) has not been implemented")
+        return nil
+    }
 
-    var before_performSegue: (String, Any?) -> () = { _ in }
+    private(set) var spy_performSegue: (identifier: String, sender: Any?)? = nil
     override func performSegue(withIdentifier identifier: String, sender: Any?) {
-        before_performSegue(identifier, sender)
+        spy_performSegue = (identifier, sender)
         prepare(for: stub_segue, sender: sender)
+    }
+    
+    private(set) var spy_configurate_segue: UIStoryboardSegue?
+    override func prs_performSegue(withIdentifier identifier: String, sender: Any?, configurate: @escaping UIViewController_PRSConfigurate) {
+        super.prs_performSegue(withIdentifier: identifier, sender: sender, configurate: { segue in
+            self.spy_configurate_segue = segue
+            configurate(segue)
+        })
     }
 }
 
@@ -124,5 +124,5 @@ final class PRS_Stub_StoryboardSegue: UIStoryboardSegue {
     }
 }
 
-final class PRS_Fake_ViewController: UIViewController {
+final class PRS_Dummy_ViewController: UIViewController {
 }
