@@ -7,7 +7,7 @@ extension UIViewController {
         static var segueRepository = #file + "#(segueRepository)"
     }
     
-    public func prs_performSegue<T>(to clazz: T.Type, sender: AnyObject? = nil, configurate: ((T?) -> ())? = nil)
+    public func prs_performSegue<T>(to clazz: T.Type, sender: Any? = nil, configurate: ((T?) -> ())? = nil)
         where T: UIViewController {
             let identifier = String(describing: clazz)
             prs_performSegue(withIdentifier: identifier, sender: sender, configurate: { segue in
@@ -22,7 +22,7 @@ extension UIViewController {
     }
     
     @objc public func prs_performSegue(withIdentifier identifier: String,
-                                 sender: AnyObject?,
+                                 sender: Any?,
                                  configurate: @escaping UIViewController_PRSConfigurate) {
         prs_swizzlingPrepareForSegue()
         prs_segueRepository.saveConfigurate(configurate, for: identifier)
