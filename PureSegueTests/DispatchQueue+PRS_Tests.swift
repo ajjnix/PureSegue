@@ -2,13 +2,13 @@ import XCTest
 @testable import PureSegue
 
 final class DispatchQueue_RPS_Tests: XCTestCase {
-    func test_result_exec_first() {
+    func test_first_true() {
         let repository = PRS_Stub_TokenRepository(stub_contains: false)
         let result = DispatchQueue.prs_once(token: "token", tokenRepository: repository, function: {})
         XCTAssertTrue(result)
     }
     
-    func test_result_exec_second() {
+    func test_second_false() {
         let token = "token"
         let repository = PRS_Stub_TokenRepository(stub_contains: true)
         let result = DispatchQueue.prs_once(token: token, tokenRepository: repository, function: {})
@@ -17,26 +17,32 @@ final class DispatchQueue_RPS_Tests: XCTestCase {
     
     func test_exec_contains_token_false() {
         let token = "token"
-        let counter = PRSCounter()
+        var count = 0
+        let increment = {
+            count += 1
+        }
         let repository = PRS_Stub_TokenRepository(stub_contains: false)
         
-        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: counter.increment)
-        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: counter.increment)
-        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: counter.increment)
+        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: increment)
+        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: increment)
+        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: increment)
         
-        XCTAssertEqual(counter.count, 3)
+        XCTAssertEqual(count, 3)
     }
     
     func test_exec_contains_token_true() {
         let token = "token"
-        let counter = PRSCounter()
+        var count = 0
+        let increment = {
+            count += 1
+        }
         let repository = PRS_Stub_TokenRepository(stub_contains: true)
         
-        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: counter.increment)
-        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: counter.increment)
-        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: counter.increment)
+        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: increment)
+        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: increment)
+        DispatchQueue.prs_once(token: token, tokenRepository: repository, function: increment)
         
-        XCTAssertEqual(counter.count, 0)
+        XCTAssertEqual(count, 0)
     }
 }
 

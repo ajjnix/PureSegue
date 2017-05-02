@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DA8A6751EA91CAA00DCFEA6 /* PRSCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6741EA91CAA00DCFEA6 /* PRSCounter.swift */; };
 		2DA8A6771EA91DF600DCFEA6 /* PRSTokenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6761EA91DF600DCFEA6 /* PRSTokenRepository.swift */; };
 		2DA8A6791EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A6781EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift */; };
 		2DA8A67B1EA9214B00DCFEA6 /* UIViewController+PRS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8A67A1EA9214B00DCFEA6 /* UIViewController+PRS_Tests.swift */; };
@@ -33,7 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2DA8A6741EA91CAA00DCFEA6 /* PRSCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSCounter.swift; sourceTree = "<group>"; };
 		2DA8A6761EA91DF600DCFEA6 /* PRSTokenRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSTokenRepository.swift; sourceTree = "<group>"; };
 		2DA8A6781EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRSTokenRepository_Tests.swift; sourceTree = "<group>"; };
 		2DA8A67A1EA9214B00DCFEA6 /* UIViewController+PRS_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PRS_Tests.swift"; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				2DE5DC9A1EA913B90086F0AC /* DispatchQueue+PRS_Tests.swift */,
 				2DA8A6781EA91F1000DCFEA6 /* PRSTokenRepository_Tests.swift */,
 				2DA8A67A1EA9214B00DCFEA6 /* UIViewController+PRS_Tests.swift */,
-				2DA8A6741EA91CAA00DCFEA6 /* PRSCounter.swift */,
 				2DA8A6801EA927B200DCFEA6 /* PRSSegueRepository_Tests.swift */,
 				2DA8A6881EA932A100DCFEA6 /* PRSBox_Tests.swift */,
 			);
@@ -241,7 +238,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DA8A67B1EA9214B00DCFEA6 /* UIViewController+PRS_Tests.swift in Sources */,
-				2DA8A6751EA91CAA00DCFEA6 /* PRSCounter.swift in Sources */,
 				2DA8A6811EA927B200DCFEA6 /* PRSSegueRepository_Tests.swift in Sources */,
 				2DA8A6891EA932A100DCFEA6 /* PRSBox_Tests.swift in Sources */,
 				2DE5DC9B1EA913B90086F0AC /* DispatchQueue+PRS_Tests.swift in Sources */,

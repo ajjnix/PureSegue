@@ -13,24 +13,16 @@ final class PRSPRSSegueRepository_Tests: XCTestCase {
         XCTAssertNil(configurate)
     }
     
-    func test_save_configurate() {
-        repository.saveConfigurate({ _ in }, for: token)
-        let configurate = repository.configurate(for: token)
-        XCTAssertNotNil(configurate)
-    }
-    
     func test_save_correct() {
-        let counter = PRSCounter()
-        let segue = UIStoryboardSegue(identifier: nil, source: UIViewController(), destination: UIViewController())
-        let mockConfigurate: UIViewController_PRSConfigurate = { _ in
-            counter.increment()
-        }
+        var called = false
+        repository.saveConfigurate({ _ in
+            called = true
+        }, for: token)
         
-        repository.saveConfigurate(mockConfigurate, for: token)
         let configurate = repository.configurate(for: token)
-        configurate?(segue)
+        configurate?(PRS_Stub_StoryboardSegue())
         
-        XCTAssertEqual(counter.count, 1)
+        XCTAssertTrue(called)
     }
     
     func test_remove_configurate() {
