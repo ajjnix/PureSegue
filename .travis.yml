@@ -1,7 +1,5 @@
 language: objective-c
-osx_image: xcode8.3
 xcode_project: PureSegue.xcodeproj
-xcode_sdk: iphonesimulator10.2
 
 before_install: 
 - rvm install 2.1.0
@@ -10,9 +8,29 @@ before_install:
 install: 
 - bundle install
 
-script: 
-- xcodebuild -project PureSegue.xcodeproj -scheme PureSegue build -sdk iphonesimulator
-- xcodebuild test -project PureSegue.xcodeproj -scheme PureSegue build -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3'
+script:
+  - script/build
+  
+env:
+  global:
+    - XCODE_SDK=iphonesimulator
+    - XCODE_ACTION="test"
+    - CONFIGURATION=Debug
+
+matrix:
+  include:
+      - xcode_scheme: PureSegue
+        osx_image: xcode8.3
+        env: XCODE_DESTINATION="platform=iOS Simulator,name=iPhone 7"
+      - xcode_scheme: PureSegue
+        osx_image: xcode8.3
+        env: XCODE_DESTINATION="platform=iOS Simulator,name=iPhone 5"
+      - xcode_scheme: PureSegue
+        osx_image: xcode8.2
+        env: XCODE_DESTINATION="platform=iOS Simulator,name=iPhone 6"
+      - xcode_scheme: PureSegue
+        osx_image: xcode8.2
+        env: XCODE_DESTINATION="platform=iOS Simulator,name=iPhone 5"
 
 after_success: 
 - slather
