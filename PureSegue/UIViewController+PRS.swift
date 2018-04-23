@@ -38,7 +38,7 @@ extension UIViewController {
             let originalMethod = class_getInstanceMethod(clazz, originalSelector)
             let swizzledMethod = class_getInstanceMethod(clazz, swizzledSelector)
 
-            method_exchangeImplementations(originalMethod, swizzledMethod)
+            method_exchangeImplementations(originalMethod!, swizzledMethod!)
         })
     }
     
